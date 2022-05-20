@@ -246,22 +246,30 @@ export default function ShowGame() {
     };
 
     const handleSwitchToggle = (e) => {
+        e.target.disabled = true;
         if (e.target.checked) {
             async function addActive() {
+
                 const data = await AddActiveUser(searchParams.get("id"), userDB._id)
                 console.log("addActive", data);
+                setSwitchActiveGame(e.target.checked)
+                setCounter((c) => c + 1)
+                e.target.disabled = false;
+
             }
             addActive();
         } else {
             async function removeActive() {
                 const data = await RemoveActiveUser(searchParams.get("id"), userDB._id)
                 console.log("removeActive", data);
+                setSwitchActiveGame(e.target.checked)
+                setCounter((c) => c + 1)
+                e.target.disabled = false;
 
             }
             removeActive();
         }
-        setSwitchActiveGame(e.target.checked)
-        setCounter((c) => c + 1)
+
     };
 
     const handleToggle = (value) => () => {
