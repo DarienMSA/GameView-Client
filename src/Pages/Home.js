@@ -67,7 +67,7 @@ export default function Home() {
                     console.log("name: ", newUser.name)
                     if (newUser.name.length <= 3) {
                         for (let index = 0; index < 4 - newUser.name.length; index++) {
-                            newUser.name.concat("_");
+                            newUser.name = newUser.name.concat("_");
                         }
                     }
                     console.log("name after for: ", newUser.name)
