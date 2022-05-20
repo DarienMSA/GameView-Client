@@ -256,7 +256,8 @@ export default function ShowGame() {
                 setSwitchActiveGame(e.target.checked)
 
                 e.target.disabled = false;
-                setActiveUsers(data.activeUsers);
+                setActiveUsers([]);
+                setActiveUsers(data.data.activeUsers);
             }
             addActive();
         } else {
@@ -265,7 +266,8 @@ export default function ShowGame() {
                 setSwitchActiveGame(e.target.checked)
 
                 e.target.disabled = false;
-                setActiveUsers(data.activeUsers);
+                setActiveUsers([]);
+                setActiveUsers(data.data.activeUsers);
             }
             removeActive();
         }
