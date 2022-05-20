@@ -26,6 +26,7 @@ export default function Home() {
     }
 
     useEffect(() => {
+        document.title = "GameView";
         if (!isLoading && isAuthenticated) {
             async function createNotification(newUser) {
                 const notification = {

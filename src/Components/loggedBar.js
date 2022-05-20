@@ -212,15 +212,7 @@ export default function LoggedBar() {
                 <p>Perfil</p>
             </MenuItem>
 
-            <MenuItem onClick={logOut("/login")}>
-                <IconButton
-                    size="large"
-                    color="inherit"
-                >
-                    <LogoutIcon />
-                </IconButton>
-                <p>Cerrar sesión</p>
-            </MenuItem>
+            <LogoutButton />
 
             <Menu
                 sx={{ mt: '45px' }}
