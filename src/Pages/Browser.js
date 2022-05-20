@@ -40,6 +40,7 @@ export default function Browser() {
     };
     async function GetGamesSorted() {
         const data = await GetGamesSortedBy("name");
+        setGames([]);
         setGames(data);
         setNoOfPages(Math.ceil(data.length / itemsPerPage));
         setSearchValue("Mostrándose todos los juegos:")
@@ -47,11 +48,13 @@ export default function Browser() {
     }
     async function getCategories() {
         const data = await GetCategories();
+        setCategories([])
         setCategories(data)
     }
 
     async function GetGamesName() {
         const data = await GetGamesByName(searchParams.get("v"));
+        setGames([]);
 
         setGames(data);
         setNoOfPages(Math.ceil(data.length / itemsPerPage));
@@ -63,6 +66,7 @@ export default function Browser() {
     async function GetGamesCategory() {
         const data = await GetGamesByCategory(searchParams.get("c"));
 
+        setGames([]);
 
         setGames(data);
         setNoOfPages(Math.ceil(data.length / itemsPerPage));

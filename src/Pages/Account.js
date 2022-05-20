@@ -35,12 +35,14 @@ export default function Account() {
 
     async function getUserReviews(id) {
         const data = await GetUserReviews(id);
+        setReviews([]);
         setReviews(data);
     }
 
     async function getUserActiveGames(id) {
 
         const data = await GetUserActiveGames(id);
+        setActiveGames([]);
         setActiveGames(data);
     }
 

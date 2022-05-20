@@ -100,6 +100,7 @@ export default function Chat() {
     }
     async function getAllChats(id) {
         const data = await GetUserChats(id);
+        setChats([]);
         setChats(data);
         if (searchParams.has("c"))
             getUsersChatLog();
@@ -107,6 +108,7 @@ export default function Chat() {
 
     async function getAllUsers(id) {
         const data = await GetAllExcept(id);
+        setAllUsers([]);
         setAllUsers(data);
         getAllChats(id)
     }

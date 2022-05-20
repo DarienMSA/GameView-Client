@@ -152,8 +152,11 @@ export default function ShowGame() {
     async function getBadges() {
         const data = await GetAllBadges();
 
-        if (data.length != 0)
+        if (data.length != 0) {
+            setBadges([])
             setBadges(data)
+        }
+
     }
     async function getUserGameReview() {
 
@@ -174,6 +177,7 @@ export default function ShowGame() {
     async function getReviews() {
 
         const data = await GetGameReviews(searchParams.get("id"));
+        setReviews([])
         setReviews(data)
     }
 
@@ -196,6 +200,7 @@ export default function ShowGame() {
         const data = await GetGameID(searchParams.get("id"));
         if (data._id) {
             document.title = data.name;
+            setGame({});
             setGame(data);
 
         } else {
@@ -244,13 +249,13 @@ export default function ShowGame() {
         if (e.target.checked) {
             async function addActive() {
                 const data = await AddActiveUser(searchParams.get("id"), userDB._id)
-                console.log("AddData: ", data)
+
             }
             addActive();
         } else {
             async function removeActive() {
                 const data = await RemoveActiveUser(searchParams.get("id"), userDB._id)
-                console.log("RemoveData: ", data)
+
             }
             removeActive();
         }
@@ -626,7 +631,7 @@ export default function ShowGame() {
                             >
                                 <BoxModalActiveGames sx={{ background: "#1A374D" }}>
                                     <Typography color={"#FFF2EF"} textAlign={"center"} id="modal-modal-title" variant="h5" component="h2" my={3}>
-                                        Buscando jugadores para Elden Ring
+                                        Buscando jugadores para {game.name}
                                     </Typography>
                                     <Divider sx={{ marginY: "15px" }} variant="middle"></Divider>
                                     <Grid container id="modal-modal-description" sx={{ my: 2 }}>
@@ -636,7 +641,7 @@ export default function ShowGame() {
                                                 <FormControlLabel control={<Switch onChange={handleSwitchToggle} color={"buttonPrimary"} checked={switchActiveGame} />} label={<span style={{ color: '#FFF2EF' }}>Quiero buscar jugadores</span>} />
                                             </FormGroup>
                                             <Typography color={"#FFF2EF"} width={"80%"} sx={{ my: 10 }}>
-                                                Estos son los usuarios que buscan tener una partida en Elden Ring, comunícate con ellos por sus redes sociales o enviándoles un mensaje
+                                                Estos son los usuarios que buscan tener una partida en {game.name}, comunícate con ellos por sus redes sociales o enviándoles un mensaje
                                             </Typography>
 
                                         </Grid>
