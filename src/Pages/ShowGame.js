@@ -194,8 +194,8 @@ export default function ShowGame() {
     async function getGame() {
 
         const data = await GetGameID(searchParams.get("id"));
-        console.log(game);
-        if (data.launchDate) {
+        if (data._id) {
+            document.title = data.name;
             setGame(data);
 
         } else {

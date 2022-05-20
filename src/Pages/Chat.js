@@ -84,7 +84,6 @@ export default function Chat() {
         console.log("data: ", data)
         if (data.data.lastMessageFrom.email === user.email) {
             const data2 = await SetSeenChat(searchParams.get("c"), false)
-            console.log("data2: ", data2);
         }
 
     }
@@ -133,6 +132,7 @@ export default function Chat() {
 
     useEffect(() => {
         if (!isLoading) {
+            document.title = "Chat"
             if (!isAuthenticated) {
                 navigate("/")
             }

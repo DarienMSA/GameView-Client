@@ -143,6 +143,7 @@ export default function UpdateAccount() {
 
 
             if (isAuthenticated) {
+                document.title = "Actualizar Cuenta";
                 async function getUser() {
 
                     const data = await GetUserEmail(user.email);

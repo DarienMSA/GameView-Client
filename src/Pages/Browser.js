@@ -43,6 +43,7 @@ export default function Browser() {
         setGames(data);
         setNoOfPages(Math.ceil(data.length / itemsPerPage));
         setSearchValue("Mostrándose todos los juegos:")
+        document.title = "Mostrándose todos los juegos";
     }
     async function getCategories() {
         const data = await GetCategories();
@@ -55,6 +56,7 @@ export default function Browser() {
         setGames(data);
         setNoOfPages(Math.ceil(data.length / itemsPerPage));
         setSearchValue(`Resultados de Búsqueda: ${searchParams.get("v")}`)
+        document.title = `Resultados de Búsqueda: ${searchParams.get("v")}`;
 
     }
 
@@ -66,6 +68,7 @@ export default function Browser() {
         setNoOfPages(Math.ceil(data.length / itemsPerPage));
         const category = await GetOneCategory(searchParams.get("c"))
         setSearchValue(`Resultados de Búsqueda: ${category.name}`)
+        document.title = `Resultados de Búsqueda: ${category.name}`;
 
 
     }
