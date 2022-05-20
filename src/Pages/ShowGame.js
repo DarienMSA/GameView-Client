@@ -249,12 +249,13 @@ export default function ShowGame() {
         if (e.target.checked) {
             async function addActive() {
                 const data = await AddActiveUser(searchParams.get("id"), userDB._id)
-
+                console.log("addActive", data);
             }
             addActive();
         } else {
             async function removeActive() {
                 const data = await RemoveActiveUser(searchParams.get("id"), userDB._id)
+                console.log("removeActive", data);
 
             }
             removeActive();
