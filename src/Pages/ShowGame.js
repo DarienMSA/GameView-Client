@@ -253,7 +253,8 @@ export default function ShowGame() {
                 const data = await AddActiveUser(searchParams.get("id"), userDB._id)
                 console.log("addActive", data);
                 setSwitchActiveGame(e.target.checked)
-                setCounter((c) => c + 1)
+                //setCounter((c) => c + 1)
+                setGame(data)
                 e.target.disabled = false;
 
             }
@@ -263,7 +264,8 @@ export default function ShowGame() {
                 const data = await RemoveActiveUser(searchParams.get("id"), userDB._id)
                 console.log("removeActive", data);
                 setSwitchActiveGame(e.target.checked)
-                setCounter((c) => c + 1)
+                //setCounter((c) => c + 1)
+                setGame(data)
                 e.target.disabled = false;
 
             }
