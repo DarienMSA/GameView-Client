@@ -12,6 +12,7 @@ import { CreateUser, GetUserEmail } from '../Services/UserServices'
 import { CreateNotification } from '../Services/NotificationServices'
 
 export default function Home() {
+    const navigate = useNavigate();
     const { user, isAuthenticated, isLoading } = useAuth0();
     const [userDB, setUserDB] = useState({})
 
@@ -74,6 +75,7 @@ export default function Home() {
                         if (data.email) {
                             setUserDB(data);
                             createNotification(data);
+                            navigate("/?c=created")
                         } else {
                         }
                     }
