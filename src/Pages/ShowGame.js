@@ -203,7 +203,6 @@ export default function ShowGame() {
             document.title = data.name;
             setGame(data);
             setActiveUsers([]);
-            console.log("ActivaUsers: ", data.activeUsers);
             setActiveUsers(data.activeUsers);
 
         } else {
@@ -255,18 +254,20 @@ export default function ShowGame() {
 
                 const data = await AddActiveUser(searchParams.get("id"), userDB._id)
                 setSwitchActiveGame(e.target.checked)
-                setCounter((c) => c + 1)
-                e.target.disabled = false;
 
+                e.target.disabled = false;
+                setActiveUsers([]);
+                setActiveUsers(data.activeUsers);
             }
             addActive();
         } else {
             async function removeActive() {
                 const data = await RemoveActiveUser(searchParams.get("id"), userDB._id)
                 setSwitchActiveGame(e.target.checked)
-                setCounter((c) => c + 1)
-                e.target.disabled = false;
 
+                e.target.disabled = false;
+                setActiveUsers([]);
+                setActiveUsers(data.activeUsers);
             }
             removeActive();
         }
