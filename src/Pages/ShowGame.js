@@ -714,7 +714,7 @@ export default function ShowGame() {
 
 
                 <Grid container item xs={12} justifyContent={"center"} alignItems={"center"} mt={10}>
-                    <Typography variant={"h5"} fontWeight={"bold"} textAlign={"center"}>Todas las reseñas.</Typography>
+                    <Typography variant={"h5"} fontWeight={"bold"} textAlign={"center"}> {reviews.length === 0 ? "Este juego todavía no tiene reseñas." : "Todas las reseñas."} </Typography>
                 </Grid>
 
                 <Grid container item xs={12} justifyContent={"center"} alignItems={"center"} my={2}>
