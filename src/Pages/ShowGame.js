@@ -248,14 +248,10 @@ export default function ShowGame() {
     };
 
     const handleSwitchToggle = (e) => {
-        e.target.disabled = true;
         if (e.target.checked) {
             async function addActive() {
-
                 const data = await AddActiveUser(searchParams.get("id"), userDB._id)
-                setSwitchActiveGame(e.target.checked)
 
-                e.target.disabled = false;
                 setActiveUsers([]);
                 setActiveUsers(data.data.activeUsers);
             }
@@ -263,14 +259,13 @@ export default function ShowGame() {
         } else {
             async function removeActive() {
                 const data = await RemoveActiveUser(searchParams.get("id"), userDB._id)
-                setSwitchActiveGame(e.target.checked)
 
-                e.target.disabled = false;
                 setActiveUsers([]);
                 setActiveUsers(data.data.activeUsers);
             }
             removeActive();
         }
+        setSwitchActiveGame(e.target.checked)
 
     };
 
