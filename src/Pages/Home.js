@@ -78,7 +78,7 @@ export default function Home() {
         }
     }, [isLoading]);
 
-
+    if (isLoading) return (<h1></h1>)
 
     return (
         <ThemeProvider theme={btheme}>
