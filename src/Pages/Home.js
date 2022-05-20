@@ -63,6 +63,11 @@ export default function Home() {
                             facebook: ""
                         }
                     };
+                    if (newUser.name.length < 4) {
+                        for (let index = 0; index < 4 - newUser.name.length; index++) {
+                            newUser.name.concat("_");
+                        }
+                    }
                     async function UserPost() {
                         const data = await CreateUser(newUser);
                         console.log("Usuario creado: ", data);
