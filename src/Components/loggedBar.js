@@ -65,9 +65,9 @@ export default function LoggedBar() {
                 getUserNotifs(id)
             }
             async function getUser() {
-
+                console.log("email: ", user.email);
                 const data = await GetUserEmail(user.email);
-
+                console.log("data: ", data);
                 if (data.email) {
                     setUserDB(data);
                     getNumberOfMessages(data._id)

@@ -42,12 +42,14 @@ export default function Home() {
 
             async function getUserByEmail() {
                 const data = await GetUserEmail(user.email);
+                console.log("Antes del if: ", data)
                 if (data._id) {
-
+                    console.log(" if (data._id) ", data)
                     user._id = data._id
 
                     setUserDB(data);
                 } else {
+                    console.log("else")
                     let newUser = {
                         email: user.email,
                         name: user.nickname.substring(0, 30),
@@ -63,7 +65,7 @@ export default function Home() {
                     };
                     async function UserPost() {
                         const data = await CreateUser(newUser);
-                        user._id = data._id
+                        console.log("Usuario creado: ", data);
                         if (data.email) {
                             setUserDB(data);
                             createNotification(data);

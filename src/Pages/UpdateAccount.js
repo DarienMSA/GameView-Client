@@ -462,7 +462,7 @@ export default function UpdateAccount() {
                                     name="birthday"
                                     onChange={handleOnChangePD}
                                     color={"info"}
-                                    defaultValue={userDB.birthday}
+                                    defaultValue={userDB.birthday === "" ? "1990-01-01" : userDB.birthday}
                                     fullWidth
                                     InputLabelProps={{
                                         shrink: true,
