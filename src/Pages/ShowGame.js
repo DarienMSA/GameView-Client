@@ -106,6 +106,7 @@ export default function ShowGame() {
     const { user, isLoading, isAuthenticated } = useAuth0();
     const [game, setGame] = useState({})
     const [reviews, setReviews] = useState([])
+    const [activeUsers, setActiveUsers] = useState([])
     const [openAlertModifReview, setOpenAlertModifReview] = useState(false);
     const [textAlertModifReview, setTextAlertModifReview] = useState("");
     const [openAlertCreateReview, setOpenAlertCreateReview] = useState(false);
@@ -200,8 +201,9 @@ export default function ShowGame() {
         const data = await GetGameID(searchParams.get("id"));
         if (data._id) {
             document.title = data.name;
-            setGame({});
             setGame(data);
+            setActiveUsers([]);
+            setActiveUsers(data.activeUsers);
 
         } else {
             navigate("/")
@@ -251,10 +253,8 @@ export default function ShowGame() {
             async function addActive() {
 
                 const data = await AddActiveUser(searchParams.get("id"), userDB._id)
-                console.log("addActive", data);
                 setSwitchActiveGame(e.target.checked)
-                //setCounter((c) => c + 1)
-                setGame(data)
+                setCounter((c) => c + 1)
                 e.target.disabled = false;
 
             }
@@ -262,10 +262,8 @@ export default function ShowGame() {
         } else {
             async function removeActive() {
                 const data = await RemoveActiveUser(searchParams.get("id"), userDB._id)
-                console.log("removeActive", data);
                 setSwitchActiveGame(e.target.checked)
-                //setCounter((c) => c + 1)
-                setGame(data)
+                setCounter((c) => c + 1)
                 e.target.disabled = false;
 
             }
@@ -659,7 +657,7 @@ export default function ShowGame() {
 
                                         <Grid item container xs={12} md={12} lg={8} justifyContent="center" alignItems={"center"} sx={{ maxHeight: "470px", overflow: "auto" }}>
                                             {
-                                                game.activeUsers.map((user, index) => (
+                                                activeUsers.map((user, index) => (
                                                     <ActiveUsers key={index} user={user}></ActiveUsers>
                                                 ))
                                             }
