@@ -64,11 +64,13 @@ export default function Home() {
                             facebook: ""
                         }
                     };
-                    if (newUser.name.length < 4) {
+                    console.log("name: ", newUser.name)
+                    if (newUser.name.length <= 3) {
                         for (let index = 0; index < 4 - newUser.name.length; index++) {
                             newUser.name.concat("_");
                         }
                     }
+                    console.log("name after for: ", newUser.name)
                     async function UserPost() {
                         const data = await CreateUser(newUser);
                         console.log("Usuario creado: ", data);
