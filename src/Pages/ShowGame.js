@@ -203,6 +203,7 @@ export default function ShowGame() {
             document.title = data.name;
             setGame(data);
             setActiveUsers([]);
+            console.log("ActivaUsers: ", data.activeUsers);
             setActiveUsers(data.activeUsers);
 
         } else {
