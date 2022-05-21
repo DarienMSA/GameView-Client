@@ -37,20 +37,20 @@ export default function Home() {
                     date: getCurrentDate()
                 }
                 const data = await CreateNotification(notification);
-                console.log(data)
+
 
             }
 
             async function getUserByEmail() {
                 const data = await GetUserEmail(user.email);
-                console.log("Antes del if: ", data)
+
                 if (data._id) {
-                    console.log(" if (data._id) ", data)
+
                     user._id = data._id
 
                     setUserDB(data);
                 } else {
-                    console.log("else")
+
                     let newUser = {
                         email: user.email,
                         name: user.nickname.substring(0, 30),
@@ -64,16 +64,16 @@ export default function Home() {
                             facebook: ""
                         }
                     };
-                    console.log("name: ", newUser.name)
+
                     if (newUser.name.length <= 3) {
                         for (let index = 0; index < 4 - newUser.name.length; index++) {
                             newUser.name = newUser.name.concat("_");
                         }
                     }
-                    console.log("name after for: ", newUser.name)
+
                     async function UserPost() {
                         const data = await CreateUser(newUser);
-                        console.log("Usuario creado: ", data);
+
                         if (data.email) {
                             setUserDB(data);
                             createNotification(data);
