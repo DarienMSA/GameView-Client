@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { AppBar, Box, Button, IconButton, Menu, MenuItem, Stack, Tab, Tabs, ThemeProvider, Toolbar, Typography } from '@mui/material'
 import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
-
+import HomeIcon from '@mui/icons-material/Home';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import SearchBar from './SearchBar';
 import btheme from './GameView-Theme';
