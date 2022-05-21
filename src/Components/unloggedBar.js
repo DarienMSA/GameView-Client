@@ -48,12 +48,6 @@ export default function UnloggedBar() {
             onClose={handleMobileMenuClose}
         >
             <LoginMenuItem></LoginMenuItem>
-            <MenuItem onClick={navigateFunction("/signin")}>
-                <IconButton size="large" color="inherit">
-                    <PersonAddAltRoundedIcon />
-                </IconButton>
-                <p>Registrarse</p>
-            </MenuItem>
         </Menu>
     );
 
