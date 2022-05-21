@@ -11,7 +11,7 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import LogoutIcon from '@mui/icons-material/Logout';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-
+import HomeIcon from '@mui/icons-material/Home';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import SearchBar from './SearchBar';
@@ -177,7 +177,13 @@ export default function LoggedBar() {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
-            <MenuItem>
+            <MenuItem onClick={navigateFunction("/")}>
+                <IconButton size="large" aria-label="show 4 new messages" color="inherit">
+                    <HomeIcon />
+                </IconButton>
+                <p>Inicio</p>
+            </MenuItem>
+            <MenuItem onClick={navigateFunction("/chat")}>
                 <IconButton size="large" aria-label="show 4 new messages" color="inherit">
                     <Badge badgeContent={numOfMessages} color="error">
                         <ChatIcon />

@@ -47,6 +47,12 @@ export default function UnloggedBar() {
             open={isMobileMenuOpen}
             onClose={handleMobileMenuClose}
         >
+            <MenuItem onClick={navigateFunction("/")}>
+                <IconButton size="large" aria-label="show 4 new messages" color="inherit">
+                    <HomeIcon />
+                </IconButton>
+                <p>Inicio</p>
+            </MenuItem>
             <LoginMenuItem></LoginMenuItem>
         </Menu>
     );
